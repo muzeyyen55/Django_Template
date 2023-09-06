@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+    <h1>Weather Report</h1>
+    <!-- Jinja Syntax-->
+
+    <h2>Istanbul: {{istanbul}}</h2>
+    <br />
+    <h2>Amsterdam: {{Amsterdam}}</h2>
+    <br />
+    <ul>
+    {% for key,value in Roma.items %}
+    <h2><li>Roma: {{key}} : {{value}}</li></h2>
+    {% endfor %}
+    </ul>
+    <br />
+
+    {% if user_premium %}
+    <ul>
+    {% for item in Paris %} {% if item < 6 %}
+    <h2><li>Paris: Too Gold</li></h2>
+    {%else %}
+    <h2><li>Paris: {{item}}</li></h2>
+    {% endif %} {% endfor %}
+    </ul>
+    {% endif %}
+
+    <br />
+    <h2>{{test | lower}}</h2>
+
+    <!--URL VERME-->
+    <br />
+    {% comment %} <h2><a href="{% url 'template_app:index' %}">Go To Index</a></h2> {% endcomment %}
+
+    {% comment %} <br />
+    <h2><a href="{% url 'weatherview' %}">Go To Index</a></h2>
+    {% endcomment %} 
+
+    
+
+{% endblock %}
